@@ -6,6 +6,10 @@ redis_connection.sadd('channels', "Food", "Love", "Moshe")
 elastic_connection = elasticsearch.Elasticsearch()
 MESSAGES_INDEX = "messages"
 #if !(elastic_connection.indices.exists(index=)
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
+
 
 @app.route('/join_to_channel/<nickname>/<channel>')
 def join_to_channel(nickname, channel):
@@ -63,7 +67,8 @@ def search_messages(search_word):
     )
     return_response = {"items" : []}
     for ans in elastic_response["hits"]["hits"]:
-        return_response["items"].append({"name":ans["_source"]["message"], "description" : "from: {0} in channel: {1}".format(ans["_source"]["nickname"], ans["_source"]["channel"])})
+        return_response["items"].append({"name":ans["_source"]["message"],
+                                         "description" : "From: {0} in channel: {1}".format(ans["_source"]["nickname"][0], ans["_source"]["channel"])})
     return jsonify(return_response)
 
 
