@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Chat</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="app2.js"></script>
+  </head>
+  <body>
+
+    <div class="ui modal">
+        <div class="header">LOGIN</div>
+        <div class="content">
+      <div class="ui form">
+          <div class="field">
+            <label>Username</label>
+            <div class="ui left icon input">
+              <input type="text" id="nickname" placeholder="Username" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+              <i class="user icon"></i>
+            </div>
+          </div>
+          <!-- <div class="field">
+            <label>Password</label>
+            <div class="ui left icon input">
+              <input type="password" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;); cursor: auto;">
+              <i class="lock icon"></i>
+            </div>
+          </div> -->
+          <div class="ui blue submit button" id="loginButton">Login</div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <div class="ui visible inverted left vertical sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="user icon"></i>
+    People
+  </a>
+  <a class="item">
+    <i class="users icon"></i>
+    Groups
+  </a>
+  <a class="item">
+    <i class="add square icon"></i>
+    Add a group
+  </a>
+</div>
+    <div class="ui container" style="padding-left: 10%;">
+      <br>
+        <div class="ui grey huge header">
+        <i class="comments outline icon"></i>
+        <div class="content">
+          Welcome to chat!
+          <div class="sub header">by Mor.B</div>
+        </div>
+      </div>
+
+
+  <div class="ui fluid category search">
+    <div class="ui icon input">
+      <input id="searchInput" class="prompt" type="text" placeholder="Search...">
+      <i id="searchButton" class="search icon"></i>
+    </div>
+    <div id="searchResults" class="results"></div>
+  </div>
+
+
+    <div class="ui secondary pointing menu" id="chatTabs">
+      <!-- <a class="item active">
+        Moshe
+      </a>
+      <a class="item">
+        Mor
+      </a>
+      <a class="item">
+        Isahar
+      </a>
+      <div class="right menu">
+        <a class="ui item">
+          Logout
+        </a>
+      </div> -->
+    </div>
+    <div class="ui segment">
+    <div class="ui grid">
+  <div class="column row">
+    <div class="two wide column">
+        <img class="ui small circular image" src="woman.png">
+    </div>
+    <div class="fourteen wide column" id="messages">
+      <p align="right"></p>
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="ui right aligned basic segment" style="padding-right: 0px;">
+  <div class="ui left action input">
+    <button class="ui button" id="sendButton">Send</button>
+    <input id="inputData" type="text" placeholder="Your message..." style="width: 380px; text-align: right">
+  </div>
+  </div>
+  </div>
+  </body>
+</html>
