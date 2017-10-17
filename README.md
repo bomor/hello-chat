@@ -2,7 +2,7 @@
 This is my first chat  
 Main page looks like this:  
 ![alt text](https://github.com/bomor/hello-chat/blob/master/static/images/Main_page1.png)  
-For this project I used:  
+## Technologies:  
 * Python, Flask
 * Redis
 * ES
