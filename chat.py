@@ -5,7 +5,7 @@ redis_connection = redis.Redis()
 redis_connection.sadd('channels', "Food", "Love", "Moshe")
 elastic_connection = elasticsearch.Elasticsearch()
 MESSAGES_INDEX = "messages"
-#if !(elastic_connection.indices.exists(index=)
+
 @app.route('/')
 def root():
     return app.send_static_file('index.html')
@@ -32,20 +32,19 @@ def who_i_am():
     return jsonify({"name": "Mor"})
 
 
-@app.route('/clear_redis')
+@app.route('/reset')
 def clear_redis():
     redis_connection.flushdb()
+    redis_connection.sadd('channels', "Food", "Love", "Moshe")
+    elastic_connection.indices.delete(index=MESSAGES_INDEX, ignore=[400, 404])
     return jsonify({"status": "ok"})
 
 
 @app.route('/send_message/<channel>', methods=['POST'])
 def send_message(channel):
     request_values = dict(request.form)
-    print request.form
-    print ""
-    print request_values
     request_values["channel"] = channel
-    print redis_connection.rpush(channel, json.dumps(request_values))
+    redis_connection.rpush(channel, json.dumps(request_values))
     elastic_connection.index(index=MESSAGES_INDEX, doc_type="private", body=json.dumps(request_values))
     return "OK"
     #return redis_connection.publish(channel, "%s @ %s" % (nickname, message))
